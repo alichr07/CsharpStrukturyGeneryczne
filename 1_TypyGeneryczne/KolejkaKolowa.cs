@@ -46,7 +46,7 @@
         {
             get
             {
-                return (koniecBufora + 1) % bufor.Length == początekBufora;
+                return (koniecBufora + 1) % bufor.Length == poczatekBufora;
             }
         }
     }
