@@ -8,66 +8,61 @@ namespace _2_KolekcjeGeneryczneTests
     public class ListaTest
     {
         [TestMethod]
-        public void ListaMozemyDodawacNaKoniec()
+        public void UzyciePeek()
         {
-            List<int> listaLiczb = new List<int> { 1, 2, 3 };
-            listaLiczb.Add(4);
+            var kolejka = new Queue<int>();
 
-            Assert.AreEqual(4, listaLiczb[3]);
+            kolejka.Enqueue(1);
+            kolejka.Enqueue(2);
+            kolejka.Enqueue(3);
+            kolejka.Enqueue(4);
+
+            Assert.AreEqual(1, kolejka.Peek());
         }
 
         [TestMethod]
-        public void ListaMozemyDodacNaPozycji()
+        public void UzycieContains()
         {
-            List<int> listaLiczb = new List<int> { 1, 2, 3 };
-            listaLiczb.Insert(1,8);
+            var kolejka = new Queue<int>();
 
-            Assert.AreEqual(8, listaLiczb[1]);
+            kolejka.Enqueue(1);
+            kolejka.Enqueue(2);
+            kolejka.Enqueue(3);
+            kolejka.Enqueue(4);
+
+            Assert.IsTrue(kolejka.Contains(3));
         }
 
         [TestMethod]
-        public void ListaMozemyUsuwacElement()
+        public void UzycieToArray()
         {
-            List<int> listaLiczb = new List<int> { 1, 2, 3 };
-            listaLiczb.Remove(2);
+            var kolejka = new Queue<int>();
 
-            Assert.IsTrue(listaLiczb.SequenceEqual(new[] { 1, 3 }));
+            kolejka.Enqueue(1);
+            kolejka.Enqueue(2);
+            kolejka.Enqueue(3);
+            kolejka.Enqueue(4);
+
+            var tablica = kolejka.ToArray();
+            kolejka.Dequeue();
+
+            Assert.AreEqual(1, tablica[0]);
+            Assert.AreEqual(3, kolejka.Count);
         }
 
         [TestMethod]
-        public void ListaMozemyUsuwacElementNaPozycji()
+        public void UzycieClear()
         {
-            List<int> listaLiczb = new List<int> { 1, 2, 3 };
-            listaLiczb.RemoveAt(2);
+            var kolejka = new Queue<int>();
 
-            Assert.IsTrue(listaLiczb.SequenceEqual(new[] { 1, 2 }));
-        }
+            kolejka.Enqueue(1);
+            kolejka.Enqueue(2);
+            kolejka.Enqueue(3);
+            kolejka.Enqueue(4);
 
-        [TestMethod]
-        public void ListaMozemyWyszukiwacIndeksElementu()
-        {
-            List<int> listaLiczb = new List<int> { 1, 2, 3 };
+            kolejka.Clear();
 
-            Assert.AreEqual(listaLiczb.IndexOf(3), 2);
-        }
-
-        [TestMethod]
-        public void ListaMozemyWyszukiwacCzyZawiera()
-        {
-            List<int> listaLiczb = new List<int> { 1, 2, 3 };
-
-            Assert.IsTrue(listaLiczb.Contains(3));
-        }
-
-        [TestMethod]
-        public void ListaMozemyDodawacNaKoniecZakresLiczb()
-        {
-            List<int> listaLiczb = new List<int> { 1, 2, 3 };
-
-            var zakres = new List<int> { 4, 5, 6, 7 };
-            listaLiczb.AddRange(zakres);
-
-            Assert.AreEqual(7, listaLiczb[6]);
+            Assert.AreEqual(0, kolejka.Count);
         }
     }
 }
