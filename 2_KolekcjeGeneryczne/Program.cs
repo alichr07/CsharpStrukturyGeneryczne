@@ -12,7 +12,33 @@ namespace _2_KolekcjeGeneryczne
             //HashSet();
             //LinkedList();
             //LinkedList2();
+            //Dictionary();
+            //SortedDictionary();
 
+        }
+
+        private static void SortedDictionary()
+        {
+            var pracownicy = new SortedDictionary<string, List<Pracownik>>();
+
+            pracownicy.Add("Sprzedaz", new List<Pracownik>() {new Pracownik { Imie = "Jan", Nazwisko = "Kowal"},
+                                                              new Pracownik { Imie = "Tomek", Nazwisko = "Nowak" },
+                                                              new Pracownik { Imie = "Marcin", Nazwisko = "Uszak" } });
+            pracownicy.Add("Informatyka", new List<Pracownik>() {new Pracownik { Imie = "Marcin", Nazwisko = "Kowal"},
+                                                                 new Pracownik { Imie = "Tomek", Nazwisko = "Wróbel" } });
+            pracownicy.Add("Ksiegowosc", new List<Pracownik>() {new Pracownik { Imie = "Olek", Nazwisko = "Kowalski"},
+                                                                new Pracownik { Imie = "Bartek", Nazwisko = "Nawrocki" },
+                                                                new Pracownik { Imie = "Jurek", Nazwisko = "Pytel" },
+                                                                new Pracownik { Imie = "Robert", Nazwisko = "Zach" }});
+
+            foreach (var item in pracownicy)
+            {
+                Console.WriteLine("Ilość pracowników w dziale {0} wynosi {1}", item.Key, item.Value.Count);
+            }
+        }
+
+        private static void Dictionary()
+        {
             var pracownicy = new Dictionary<string, List<Pracownik>>();
 
             pracownicy.Add("Ksiegowosc", new List<Pracownik> { new Pracownik { Nazwisko = "Nowak" },
