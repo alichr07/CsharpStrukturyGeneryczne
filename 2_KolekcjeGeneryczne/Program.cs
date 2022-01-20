@@ -14,7 +14,22 @@ namespace _2_KolekcjeGeneryczne
             //LinkedList2();
             //Dictionary();
             //SortedDictionary();
+            //SortedList();
+        }
 
+        private static void SortedList()
+        {
+            var listaPosortowana = new SortedList<int, string>();
+
+            listaPosortowana.Add(3, "trzy");
+            listaPosortowana.Add(1, "jeden");
+            listaPosortowana.Add(4, "cztery");
+            listaPosortowana.Add(2, "dwa");
+
+            foreach (var item in listaPosortowana)
+            {
+                Console.WriteLine(item.Value);
+            }
         }
 
         private static void SortedDictionary()
