@@ -14,7 +14,14 @@ namespace _4_MetodyDelegatyGeneryczne
             Func<double, double, double> dodaj = (x, y) => x + y;
 
             drukuj(potegowanie(5));
-            drukuj(dodaj(10, 20));           
+            drukuj(dodaj(10, 20));
+
+            Predicate<double> jestMniejszeOdSto = d => d < 100;
+
+            var a = jestMniejszeOdSto(90);
+            var b = jestMniejszeOdSto(140);
+            Console.WriteLine(a);
+            Console.WriteLine(b);
 
             var kolejka = new KolejkaKolowa<double>();
 
