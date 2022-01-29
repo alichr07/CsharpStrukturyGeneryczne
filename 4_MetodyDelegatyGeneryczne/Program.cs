@@ -6,26 +6,33 @@ namespace _4_MetodyDelegatyGeneryczne
     {
         static void Main(string[] args)
         {
-            Action<double> drukuj = x => Console.WriteLine(x);
+            //Action<double> drukuj = x => Console.WriteLine(x);
 
-            drukuj(2.34);
+            //drukuj(2.34);
 
-            Func<double, double> potegowanie = d => d * d;
-            Func<double, double, double> dodaj = (x, y) => x + y;
+            //Func<double, double> potegowanie = d => d * d;
+            //Func<double, double, double> dodaj = (x, y) => x + y;
 
-            drukuj(potegowanie(5));
-            drukuj(dodaj(10, 20));
+            //drukuj(potegowanie(5));
+            //drukuj(dodaj(10, 20));
 
-            Predicate<double> jestMniejszeOdSto = d => d < 100;
+            //Predicate<double> jestMniejszeOdSto = d => d < 100;
 
-            var a = jestMniejszeOdSto(90);
-            var b = jestMniejszeOdSto(140);
-            Console.WriteLine(a);
-            Console.WriteLine(b);
+            //var a = jestMniejszeOdSto(90);
+            //var b = jestMniejszeOdSto(140);
+            //Console.WriteLine(a);
+            //Console.WriteLine(b);
 
             var kolejka = new KolejkaKolowa<double>();
 
             WprowadzanieDanych(kolejka);
+
+            var jakoData = kolejka.Mapuj(d => new DateTime(2018, 1, 1).AddDays(d));
+
+            foreach (var item in jakoData)
+            {
+                Console.WriteLine(item);
+            }
 
             kolejka.Drukuj(d => Console.WriteLine(d));
 
